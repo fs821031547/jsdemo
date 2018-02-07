@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="list"></div>
+		<div id="list1"></div>
+		<script type="text/javascript">
+		window.onload=function(){
+			function delegate(agents,agentsMethod){
+				return function(){
+				  return  agentsMethod.apply(agents,arguments);
+				}
+			}
+			var classA=function(){
+					this.color='blue';
+					var that=this;
+					return {
+						getColor:function(){
+							return that.color;
+						},
+						setColor:function(col){
+							that.color=col
+						}
+
+										};
+			}
+			var ca=new classA();
+			// console.log(ca.getColor());
+			// ca.setColor('red');
+			console.log(ca.getColor());
+			var d=delegate(ca,ca.setColor);
+			d('yellow');
+			console.log(ca.getColor());
+		}
+		</script>
+		
+	</body>
+</html>

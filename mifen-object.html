@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<ul id="test">
+<ul>
+<li>111</li>
+<li>222</li>
+<li>333</li>
+<li>444</li>
+</ul>
+</ul>
+<script>
+window.onload=function(){
+ 	var obj={name:'fs'};
+ 	Object.preventExtensions(obj);    //不可扩展  可以删除和修改
+ 	obj.age=18;  //false
+ 	obj.name='fsfs'; //true
+ 	delete obj.name; //true
+ 	Object.isExtensible(obj);  //false
+    console.log(obj.age);   //undefined
+    var fs={name:'fs'};
+    Object.isSealed(fs);
+    fs.name='fsfs'; //true1
+    fs.age=18;   //false
+    delete fs.name  //false
+    Object.isSealed(fs);  //true    //密封对象  不可以删除和扩展  可以修改
+    console.log(fs.age); //false
+    var abc={name:'fs'};
+    Object.freeze(abc);      //冻结对象  什么都不可以做
+    abc.name='fsfs'   //false
+    abc.age=18; //false
+    delete abc.name  //false;
+    Object.isFrozen(abc);  //true
+  };
+</script>
+	</body>
+</html>

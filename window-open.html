@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>input-fixed</title>
+	<style type="text/css">
+		body{
+			position: relative;
+		}
+		.inp-box{ 
+			position: fixed;
+			bottom: 20%;
+			left: 0;
+			padding: 0 15px;
+
+		 }
+		 .inp-box input{
+		 	width: 100%;
+		 	height: 24px;
+		 	border: 1px solid #ccc;
+		 	line-height: 24px;
+		 }
+		 button{
+		 	height: 30px;
+		 	padding: 0 20px;
+		 	line-height: 30px; 
+		 	margin: 30px;
+		 }
+	</style>
+</head>
+<body>
+
+	<button id="yes" value="">接受</button>
+	<button id="no" value="">不接受</button>
+
+
+
+<script type="text/javascript">
+	window.onload=(function(d){
+		var yes=d.getElementById('yes');
+		var no=d.getElementById('no');
+		yes.onclick=function(){
+			window.location.href="http://baidu.com";
+		}
+		no.onclick=function(){
+			closeWindows()
+		}
+		   function closeWindows() {
+         
+         //alert(browserName + " : "+browserVer);
+
+         //document.getElementById("flashContent").innerHTML = "<br>&nbsp;<font face='Arial' color='blue' size='2'><b> You have been logged out of the Game. Please Close Your Browser Window.</b></font>";
+
+         
+            //For NON-IE Browsers except Firefox which doesnt support Auto Close
+            try{
+                this.focus();
+                self.opener = this;
+                self.close();
+            }
+            catch(e){
+
+            }
+
+           
+        
+    }
+        	})(document);
+</script>
+</body>
+</html>

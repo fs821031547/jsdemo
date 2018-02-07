@@ -1,0 +1,36 @@
+<!DOCTYPE html><html><head><title>函数、原型</title>
+<script type="text/javascript">	
+//对split方法重新定义	
+String.prototype.splits = function(target) {		var arr = new Array(); //初始化数组	
+	var temp = "";		
+	for ( var i = 0; i < this.length; i++) {			var ch = this.charAt(i); //每个元素都查询一遍
+		if (ch == target) {	
+			temp += ch;				//将分割好的字符串放进数组中
+			arr.push(temp);			
+				temp = "";	
+						}
+			 else {	
+				temp += ch;			
+				}	
+			}		
+			return arr;	}
+			var str = "aabbacadaea"; //定义一个字符串	
+			var s = str.splits("a");	//输出结果
+			var x='1';
+
+			// String.prototype.toString=function(){
+			// 	x++	;
+			// }
+String.prototype.abc = function(target) {			
+	var b=this.length;var c='';
+					for(var i=b;i>=0;i--){
+						c+=this.charAt(i);
+					}
+					return c;
+			}
+			</script>
+</head>
+<body>
+	
+</body>
+</html>
